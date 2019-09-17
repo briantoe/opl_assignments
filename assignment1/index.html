@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>mywebpage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Aclonica"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1>Hello my name is Brian To</h1>
+    <h3>I am a Computer Science major at the Univ. Tex @ Dallas</h3>
+
+    <div>
+      <h6>
+        Here is my GitHub:
+        <a href="https://github.com/briantoe" target="_blank">
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            width="50px"
+            height="50px"
+          />
+        </a>
+      </h6>
+    </div>
+
+    <div class="container">
+      <p class="flex-item" id="large-text">
+        Fashion axe squid health goth tacos truffaut. Banh mi polaroid
+        live-edge, intelligentsia retro wolf poke portland whatever palo santo.
+        Etsy lo-fi keytar, chia af <b>selfies 8-bit hot chicken green</b> juice
+        banh mi fingerstache irony. Keytar crucifix plaid mlkshk, hecka heck of
+        drinking vinegar.
+        <i>YOLO keytar cliche kale chips retro 90's. 8-bit ugh lo-fi tofu</i>
+        disrupt mumblecore irony XOXO you probably haven't heard of them. Viral
+        williamsburg tbh ramps activated charcoal ethical. Chambray try-hard
+        thundercats authentic kombucha master cleanse semiotics, air plant DIY.
+        8-bit tote bag VHS, vexillologist roof party adaptogen tofu synth
+        ethical skateboard whatever artisan normcore put a bird on it actually.
+        Literally actually heck of, marfa aesthetic ethical listicle.
+      </p>
+      <img class="fixed" src="https://picsum.photos/300/200" />
+    </div>
+
+    <form onsubmit="changeColor()">
+      Select a color (red, blue, yellow):
+      <input
+        type="text"
+        id="ColorPicker"
+        placeholder="color"
+        onsubmit="changeColor()"
+      /><br />
+      <input
+        type="submit"
+        id="btn"
+        onclick="changeColor()"
+        value="Change Color"
+      />
+    </form>
+  </body>
+</html>
+
+<script>
+  function changeColor() {
+    event.preventDefault();
+    let newColor = document.getElementById("ColorPicker").value
+    if (
+      newColor.toLowerCase() == "red" ||
+      newColor.toLowerCase() == "blue" ||
+      newColor.toLowerCase() == "yellow"
+    ) {
+      document.body.style.backgroundColor = newColor;
+    } else {
+      alert(
+        "The inputted color was " +
+          (newColor.toString() == "" ? "none" : newColor.toString()) +
+          ".\nPlease select a valid color"
+      );
+    }
+  }
+</script>
