@@ -60,13 +60,28 @@
         value="Change Color"
       />
     </form>
+
+    <footer>
+      <div>
+        <img
+          onmouseover="PlaySound('diosound')"
+          onmouseout="StopSound('diosound')"
+          id="dio"
+          src="https://www.pinclipart.com/picdir/big/151-1519806_anime-face-png-graphic-black-and-white-kono.png"
+        />
+      </div>
+    </footer>
+    <audio
+      id="diosound"
+      src="https://www.myinstants.com/media/sounds/kono-dio-da99.mp3"
+    ></audio>
   </body>
 </html>
 
 <script>
   function changeColor() {
     event.preventDefault();
-    let newColor = document.getElementById("ColorPicker").value
+    let newColor = document.getElementById("ColorPicker").value;
     if (
       newColor.toLowerCase() == "red" ||
       newColor.toLowerCase() == "blue" ||
@@ -80,5 +95,14 @@
           ".\nPlease select a valid color"
       );
     }
+  }
+  function PlaySound(sound) {
+    var konodio = document.getElementById(sound);
+    konodio.play();
+  }
+  function StopSound(sound) {
+    var konodio = document.getElementById(sound);
+    konodio.pause();
+    konodio.currentTime = 0;
   }
 </script>
