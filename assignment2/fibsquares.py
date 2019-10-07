@@ -15,6 +15,3 @@ def ls_fib_squares(n):
     return ls_fib_squares(n - 1) + [fib_square(n + 1)]
 
 print(ls_fib_squares(10))
-# print(list())
-# print(fib_squares(4))
-# print(fib_squares(7))
