@@ -21,7 +21,8 @@
         ((odd? (car ls)) (+ (* (car ls) (car ls)) (sum-odd-squares (cdr ls))))
         ((even? (car ls)) (+ 0 (sum-odd-squares (cdr ls))))
         
-        ))
+        )
+)
 
 ; problem 7
  (define (subsets ls)
@@ -31,9 +32,13 @@
 (define (EXP-DEPTH ls)
   (if (not (list? ls)) 0
       (if (null? ls) 1
-          (if (list? (car ls)) (+ 1 (max( EXP-DEPTH (car ls)) (EXP-DEPTH (cdr ls))))
+          (if (list? (car ls)) (+ 1 (max (EXP-DEPTH (car ls)) (EXP-DEPTH (cdr ls))))
               (EXP-DEPTH (cdr ls))
-              ))))
+              )
+          )
+      )
+  )
+
 ; problem 9
 (define (enum-interval x y)
   (if (equal? x y) '()
