@@ -2,8 +2,7 @@
 
 ; problem 4
 (define (last-element ls)
-  (cond ((null? (cdr ls))
-         (car ls))
+  (cond ((null? (cdr ls)) (car ls))
   (else (last-element (cdr ls)))))
 
 ; problem 5
@@ -11,6 +10,7 @@
   (if (list? ls)
       (reverse (map deep-reverse ls))
       ls))
+
 ; problem 6
 (define (sum-odd-squares ls)
   (cond 
@@ -21,10 +21,31 @@
         ))
 
 ; problem 7
-;(define (subsets ls)
-;  (if (null? s)
-;     (list nil)
-;     (
+; (define (subsets ls)
+  (define (power-set set)
+  (if (null? set)
+      '(())
+      (let ((rest (power-set (cdr set))))
+        (append (map (lambda (element) (cons (car set) element))
+                     rest)
+                rest))))
+
+; problem 8
+(define (EXP-DEPTH ls)
+  (if (not (list? ls)) 0
+      (if (null? ls) 1
+          (if (list? (car ls)) (+ 1 (max( EXP-DEPTH (car ls)) (EXP-DEPTH (cdr ls))))
+              (EXP-DEPTH (cdr ls))
+              ))))
+; problem 9
+(define (enum-interval x y)
+  (if (equal? x y) '()
+      (if (even? x) (append (list x) (enum-interval (+ x 1) y))
+          (enum-interval (+ x 1) y)
+          )
+      )
+  )
+
 
 ; problem 10
 (define (fib n)
@@ -38,6 +59,9 @@
   (* (fib n) (fib n)))
 
 (define (fib-squares n)
-  (if (= n 0)
-      (cons empty (fib n))
-      (cons (fib n) (fib-squares (- n 1)) )))
+  (if (equal? n 0) (list 0)
+      (append (fib-squares (- n 1)) (list(fib-square ( + 1 n))) )            
+      )
+  )
+      
+      
