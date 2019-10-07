@@ -9,10 +9,7 @@
 (define (deep-reverse ls)
   (if (list? ls)
       (reverse (map deep-reverse ls))
-      
-      ls
-      )
-  )
+      ls))
 
 ; problem 6
 (define (sum-odd-squares ls)
@@ -24,8 +21,14 @@
         ))
 
 ; problem 7
- (define (subsets ls)
-     (combinations ls))
+; (define (subsets ls)
+  (define (power-set set)
+  (if (null? set)
+      '(())
+      (let ((rest (power-set (cdr set))))
+        (append (map (lambda (element) (cons (car set) element))
+                     rest)
+                rest))))
 
 ; problem 8
 (define (EXP-DEPTH ls)
