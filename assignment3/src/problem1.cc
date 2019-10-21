@@ -2,6 +2,10 @@
 #include <chrono>
 #include <thread>
 #include <bits/stdc++.h>
+#include <ctime>
+#include <cstdlib>
+#define LOOPS 1000000
+#define ARRSIZE 10000
 
 using namespace std;
 
@@ -9,8 +13,6 @@ void staticArr();
 void stackArr();
 void heapArr();
 
-const int LOOPS = 100000;
-const int ARRSIZE = 5000;
 
 int main()
 {
@@ -35,18 +37,33 @@ int main()
     time_taken = double(end - start);
     cout << time_taken << endl;
 
-    //  stackArr();
+    time(&start);
+    for (int i = 0; i < LOOPS; i++)
+    {
+        heapArr();
+    }
+    time(&end);
+    time_taken = double(end - start);
+    cout << time_taken << endl;
 
-    // heapArr();
+
+    // srand(time(0));
+    // int r = (rand() % 1000) + 1;
+    // int temparr[r];
+    // for(int i = 0; i < r; i++)
+    // {
+    //     temparr[i] = i + 1;
+    //     cout << temparr[i] << endl;
+    // }
 
     return 0;
 }
 
 void staticArr()
 {
-    static int arr[ARRSIZE];
+    int static arr[ARRSIZE];
     int size = sizeof(arr) / sizeof(arr[0]);
- 
+
     for (int i = 0; i < size; i++)
     {
         arr[i] = i + 1;

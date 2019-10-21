@@ -20,18 +20,19 @@ CXXFLAGS = -Wall
 BIN_DIR=bin
 SRC_DIR=src
 LIB_DIRS=${SRC_DIR}
+EXTENSION=.cc
 
 
 
 
 define compile
-  ${CXX} $(CXXFLAGS) $(addprefix -y, ${LIB_DIRS}) -o ${BIN_DIR}/$(notdir $(basename $1))$1
+  ${CXX} $(CXXFLAGS) $(addprefix , ${LIB_DIRS}/$1.cc) -o ${BIN_DIR}/$1.out
 endef
 
 
-all: problem1 
+all: bin problem1 
 problem1:
-	$(call compile, problem1.out)
+	$(call compile,problem1)
 add:
 	$(call compile, ${ADD_TEST})
 	$(call compile, ${SUB_TEST})
