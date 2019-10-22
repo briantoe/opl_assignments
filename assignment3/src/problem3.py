@@ -21,4 +21,4 @@ def func1():
 
     func2()
 
-temp = func1()
+func1()
