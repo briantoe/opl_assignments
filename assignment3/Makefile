@@ -1,17 +1,3 @@
-# CXX = g++
-# CXXFLAGS = -Wall
-
-# PROJECTNAME = problem1
-
-
-
-# all: problem1 problem2 problem3
-# problem1: problem1.cc
-
-
-# clean:
-# 	rm -rf *.out *~ 
-
 SHELL = /bin/bash
 
 CXX = g++
@@ -30,27 +16,15 @@ define compile
 endef
 
 
-all: bin problem1 
+all: bin problem1 problem5 problem6
 problem1:
 	$(call compile,problem1)
-add:
-	$(call compile, ${ADD_TEST})
-	$(call compile, ${SUB_TEST})
 
-mult:
-	$(call compile, ${MULT_TEST})
+problem5:
+	$(call compile,problem5)
 
-dec:
-	$(call compile, ${DEC_TEST})
-
-mux:
-	$(call compile, ${MUX_TEST})
-
-shift:
-	$(call compile, ${SHIFT_TEST})
-
-cmp:
-	$(call compile, ${CMP_TEST})
+problem6:
+	$(call compile,problem6)
 
 bin:
 	[[ -d ${BIN_DIR} ]] || mkdir ${BIN_DIR}
